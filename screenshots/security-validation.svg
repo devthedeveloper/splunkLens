@@ -1,0 +1,82 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8fafc"/>
+  
+  <!-- Header -->
+  <rect width="1200" height="80" fill="#1e293b"/>
+  <text x="40" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">🔍 splunkLens - Security Validation Demo</text>
+  
+  <!-- Main Container -->
+  <rect x="40" y="120" width="1120" height="640" fill="white" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+  
+  <!-- Query Input Section -->
+  <text x="80" y="160" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Dangerous Query Attempt:</text>
+  
+  <!-- Input Field with dangerous query -->
+  <rect x="80" y="180" width="800" height="50" fill="#fef2f2" stroke="#ef4444" stroke-width="2" rx="4"/>
+  <text x="100" y="210" font-family="Monaco, monospace" font-size="14" fill="#dc2626">| rest /services/server/info | outputcsv /tmp/sensitive_data.csv</text>
+  
+  <!-- Generate Button (disabled state) -->
+  <rect x="900" y="180" width="120" height="50" fill="#9ca3af" rx="4"/>
+  <text x="940" y="210" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Generate SPL</text>
+  
+  <!-- Security Alert -->
+  <rect x="80" y="260" width="1040" height="120" fill="#fef2f2" stroke="#ef4444" stroke-width="2" rx="8"/>
+  
+  <!-- Alert Icon and Title -->
+  <text x="100" y="290" font-family="Arial, sans-serif" font-size="24" fill="#dc2626">🚨</text>
+  <text x="140" y="290" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#dc2626">SECURITY VIOLATION DETECTED</text>
+  
+  <!-- Alert Details -->
+  <text x="100" y="320" font-family="Arial, sans-serif" font-size="14" fill="#991b1b">The following dangerous commands were detected in your query:</text>
+  
+  <!-- Blocked Commands List -->
+  <rect x="120" y="330" width="980" height="30" fill="#fee2e2" stroke="#fca5a5" stroke-width="1" rx="4"/>
+  <text x="140" y="350" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#7f1d1d">❌ 'rest' command - Can access sensitive system information</text>
+  
+  <rect x="120" y="365" width="980" height="30" fill="#fee2e2" stroke="#fca5a5" stroke-width="1" rx="4"/>
+  <text x="140" y="385" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#7f1d1d">❌ 'outputcsv' command - Can write files to the system</text>
+  
+  <!-- Safe Alternative Section -->
+  <text x="80" y="430" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#059669">✅ Safe Alternative Suggestion:</text>
+  
+  <!-- Safe Query Box -->
+  <rect x="80" y="450" width="1040" height="80" fill="#ecfdf5" stroke="#10b981" stroke-width="1" rx="4"/>
+  <text x="100" y="475" font-family="Monaco, monospace" font-size="12" fill="#065f46">search index=_internal earliest=-1h latest=now</text>
+  <text x="100" y="495" font-family="Monaco, monospace" font-size="12" fill="#065f46">| stats count by component, log_level</text>
+  <text x="100" y="515" font-family="Monaco, monospace" font-size="12" fill="#065f46">| table component, log_level, count</text>
+  
+  <!-- Security Features List -->
+  <text x="80" y="570" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">🛡️ Active Security Features:</text>
+  
+  <!-- Feature 1 -->
+  <rect x="80" y="590" width="250" height="60" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1" rx="4"/>
+  <text x="90" y="610" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#0c4a6e">Command Blocking</text>
+  <text x="90" y="625" font-family="Arial, sans-serif" font-size="10" fill="#0c4a6e">Blocks: rest, script, outputcsv,</text>
+  <text x="90" y="635" font-family="Arial, sans-serif" font-size="10" fill="#0c4a6e">sendemail, exec, run</text>
+  
+  <!-- Feature 2 -->
+  <rect x="350" y="590" width="250" height="60" fill="#f0fdf4" stroke="#22c55e" stroke-width="1" rx="4"/>
+  <text x="360" y="610" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#14532d">Pattern Detection</text>
+  <text x="360" y="625" font-family="Arial, sans-serif" font-size="10" fill="#14532d">Detects: file paths, URLs,</text>
+  <text x="360" y="635" font-family="Arial, sans-serif" font-size="10" fill="#14532d">system commands</text>
+  
+  <!-- Feature 3 -->
+  <rect x="620" y="590" width="250" height="60" fill="#fefce8" stroke="#eab308" stroke-width="1" rx="4"/>
+  <text x="630" y="610" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#713f12">Time Bounds</text>
+  <text x="630" y="625" font-family="Arial, sans-serif" font-size="10" fill="#713f12">Enforces: max 365 days</text>
+  <text x="630" y="635" font-family="Arial, sans-serif" font-size="10" fill="#713f12">lookback period</text>
+  
+  <!-- Feature 4 -->
+  <rect x="890" y="590" width="230" height="60" fill="#fdf2f8" stroke="#ec4899" stroke-width="1" rx="4"/>
+  <text x="900" y="610" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#831843">Input Validation</text>
+  <text x="900" y="625" font-family="Arial, sans-serif" font-size="10" fill="#831843">Validates: query length,</text>
+  <text x="900" y="635" font-family="Arial, sans-serif" font-size="10" fill="#831843">parameters, syntax</text>
+  
+  <!-- Security Level Indicator -->
+  <rect x="1050" y="120" width="100" height="30" fill="#dc2626" rx="15"/>
+  <text x="1075" y="140" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">🔒 BLOCKED</text>
+  
+  <!-- Log Entry -->
+  <text x="80" y="690" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Security Event Logged: 2024-01-15 14:23:45 - Dangerous query blocked from user session</text>
+</svg>

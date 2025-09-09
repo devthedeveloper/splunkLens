@@ -1,0 +1,77 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8fafc"/>
+  
+  <!-- Header -->
+  <rect width="1200" height="80" fill="#1e293b"/>
+  <text x="40" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">🔍 splunkLens - Natural Language to SPL Generator</text>
+  
+  <!-- Main Container -->
+  <rect x="40" y="120" width="1120" height="640" fill="white" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+  
+  <!-- Query Input Section -->
+  <text x="80" y="160" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Enter your natural language query:</text>
+  
+  <!-- Input Field -->
+  <rect x="80" y="180" width="800" height="50" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="100" y="210" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Show me all authentication failures from the last 24 hours</text>
+  
+  <!-- Generate Button -->
+  <rect x="900" y="180" width="120" height="50" fill="#3b82f6" rx="4"/>
+  <text x="940" y="210" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Generate SPL</text>
+  
+  <!-- Configuration Section -->
+  <text x="80" y="270" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">Configuration:</text>
+  
+  <!-- Index Input -->
+  <text x="80" y="300" font-family="Arial, sans-serif" font-size="14" fill="#475569">Index:</text>
+  <rect x="140" y="285" width="150" height="30" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="2"/>
+  <text x="150" y="305" font-family="Arial, sans-serif" font-size="12" fill="#64748b">security</text>
+  
+  <!-- Lookback Days -->
+  <text x="320" y="300" font-family="Arial, sans-serif" font-size="14" fill="#475569">Lookback Days:</text>
+  <rect x="430" y="285" width="80" height="30" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="2"/>
+  <text x="460" y="305" font-family="Arial, sans-serif" font-size="12" fill="#64748b">1</text>
+  
+  <!-- Results Section -->
+  <text x="80" y="360" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Generated SPL Query:</text>
+  
+  <!-- SPL Output Box -->
+  <rect x="80" y="380" width="1040" height="80" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="100" y="405" font-family="Monaco, monospace" font-size="12" fill="#1e293b">search index=security earliest=-1d latest=now</text>
+  <text x="100" y="425" font-family="Monaco, monospace" font-size="12" fill="#1e293b">| search authentication AND failed</text>
+  <text x="100" y="445" font-family="Monaco, monospace" font-size="12" fill="#1e293b">| stats count by user, src_ip</text>
+  
+  <!-- Copy Button -->
+  <rect x="1000" y="390" width="60" height="30" fill="#10b981" rx="2"/>
+  <text x="1020" y="410" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Copy</text>
+  
+  <!-- Explanation Section -->
+  <text x="80" y="500" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Query Explanation:</text>
+  
+  <!-- Explanation Box -->
+  <rect x="80" y="520" width="1040" height="60" fill="#fef3c7" stroke="#fbbf24" stroke-width="1" rx="4"/>
+  <text x="100" y="545" font-family="Arial, sans-serif" font-size="14" fill="#92400e">This query searches the security index for authentication failure events in the last 24 hours,</text>
+  <text x="100" y="565" font-family="Arial, sans-serif" font-size="14" fill="#92400e">then groups the results by user and source IP address to show failure patterns.</text>
+  
+  <!-- Metrics Section -->
+  <text x="80" y="620" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">Query Metrics:</text>
+  
+  <!-- Cost Estimate -->
+  <rect x="80" y="640" width="200" height="40" fill="#ecfdf5" stroke="#10b981" stroke-width="1" rx="4"/>
+  <text x="90" y="655" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#065f46">Estimated Cost:</text>
+  <text x="90" y="670" font-family="Arial, sans-serif" font-size="14" fill="#065f46">0.25 credits</text>
+  
+  <!-- Result Size -->
+  <rect x="300" y="640" width="200" height="40" fill="#eff6ff" stroke="#3b82f6" stroke-width="1" rx="4"/>
+  <text x="310" y="655" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e40af">Estimated Results:</text>
+  <text x="310" y="670" font-family="Arial, sans-serif" font-size="14" fill="#1e40af">~150 events</text>
+  
+  <!-- Run in Splunk Button -->
+  <rect x="920" y="640" width="200" height="40" fill="#dc2626" rx="4"/>
+  <text x="990" y="665" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">🚀 Run in Splunk</text>
+  
+  <!-- Security Badge -->
+  <rect x="1050" y="120" width="100" height="30" fill="#16a34a" rx="15"/>
+  <text x="1080" y="140" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">🛡️ Secure</text>
+</svg>

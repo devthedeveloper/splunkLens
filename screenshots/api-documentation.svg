@@ -1,0 +1,93 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8fafc"/>
+  
+  <!-- Header -->
+  <rect width="1200" height="80" fill="#1e293b"/>
+  <text x="40" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">🔍 splunkLens API Documentation</text>
+  <text x="40" y="55" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">http://localhost:8000/docs</text>
+  
+  <!-- Swagger UI Header -->
+  <rect x="40" y="100" width="1120" height="60" fill="#38761d" rx="8"/>
+  <text x="60" y="125" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">splunkLens API</text>
+  <text x="60" y="145" font-family="Arial, sans-serif" font-size="14" fill="#d4edda">Version 1.0.0 - FastAPI automatic documentation</text>
+  
+  <!-- Main Content Area -->
+  <rect x="40" y="180" width="1120" height="580" fill="white" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+  
+  <!-- Endpoints Section -->
+  <text x="70" y="210" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">API Endpoints</text>
+  
+  <!-- GET Root Endpoint -->
+  <rect x="70" y="230" width="1050" height="50" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1" rx="4"/>
+  <rect x="80" y="240" width="40" height="20" fill="#22c55e" rx="2"/>
+  <text x="90" y="253" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">GET</text>
+  <text x="140" y="253" font-family="Monaco, monospace" font-size="14" font-weight="bold" fill="#0c4a6e">/</text>
+  <text x="180" y="253" font-family="Arial, sans-serif" font-size="12" fill="#475569">Health check endpoint</text>
+  <text x="80" y="270" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Returns API status and version information</text>
+  
+  <!-- POST Generate SPL Endpoint -->
+  <rect x="70" y="290" width="1050" height="80" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" rx="4"/>
+  <rect x="80" y="300" width="45" height="20" fill="#3b82f6" rx="2"/>
+  <text x="88" y="313" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">POST</text>
+  <text x="140" y="313" font-family="Monaco, monospace" font-size="14" font-weight="bold" fill="#92400e">/generate-spl</text>
+  <text x="280" y="313" font-family="Arial, sans-serif" font-size="12" fill="#475569">Convert natural language to SPL</text>
+  <text x="80" y="330" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Accepts: NLQuery object with query, index, sourcetype, lookback_days</text>
+  <text x="80" y="345" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Returns: SPLResponse with generated SPL, explanation, cost estimate</text>
+  <text x="80" y="360" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Security: Validates input, blocks dangerous commands</text>
+  
+  <!-- POST Run Splunk Endpoint -->
+  <rect x="70" y="380" width="1050" height="80" fill="#fef2f2" stroke="#ef4444" stroke-width="1" rx="4"/>
+  <rect x="80" y="390" width="45" height="20" fill="#3b82f6" rx="2"/>
+  <text x="88" y="403" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">POST</text>
+  <text x="140" y="403" font-family="Monaco, monospace" font-size="14" font-weight="bold" fill="#991b1b">/run-splunk</text>
+  <text x="250" y="403" font-family="Arial, sans-serif" font-size="12" fill="#475569">Execute SPL query in Splunk</text>
+  <text x="80" y="420" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Accepts: SplunkRunRequest with SPL, token, time bounds</text>
+  <text x="80" y="435" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Returns: Job ID, results link, preview data, execution status</text>
+  <text x="80" y="450" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Auth: Requires Splunk token or configured credentials</text>
+  
+  <!-- Request/Response Examples -->
+  <text x="70" y="490" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">Example Request/Response</text>
+  
+  <!-- Request Example -->
+  <rect x="70" y="510" width="500" height="120" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="80" y="530" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">Request Body:</text>
+  <text x="80" y="550" font-family="Monaco, monospace" font-size="10" fill="#475569">{</text>
+  <text x="90" y="565" font-family="Monaco, monospace" font-size="10" fill="#475569">  "query": "Show errors from last hour",</text>
+  <text x="90" y="580" font-family="Monaco, monospace" font-size="10" fill="#475569">  "index": "main",</text>
+  <text x="90" y="595" font-family="Monaco, monospace" font-size="10" fill="#475569">  "lookback_days": 1</text>
+  <text x="80" y="610" font-family="Monaco, monospace" font-size="10" fill="#475569">}</text>
+  
+  <!-- Response Example -->
+  <rect x="590" y="510" width="530" height="120" fill="#f0fdf4" stroke="#22c55e" stroke-width="1" rx="4"/>
+  <text x="600" y="530" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">Response:</text>
+  <text x="600" y="550" font-family="Monaco, monospace" font-size="10" fill="#475569">{</text>
+  <text x="610" y="565" font-family="Monaco, monospace" font-size="10" fill="#475569">  "spl": "search index=main earliest=-1h error",</text>
+  <text x="610" y="580" font-family="Monaco, monospace" font-size="10" fill="#475569">  "explanation": "Searches for error events...",</text>
+  <text x="610" y="595" font-family="Monaco, monospace" font-size="10" fill="#475569">  "estimated_cost": 0.15</text>
+  <text x="600" y="610" font-family="Monaco, monospace" font-size="10" fill="#475569">}</text>
+  
+  <!-- Status Codes -->
+  <text x="70" y="660" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">HTTP Status Codes</text>
+  
+  <!-- Status Code List -->
+  <rect x="70" y="680" width="200" height="20" fill="#dcfce7" stroke="#22c55e" stroke-width="1" rx="2"/>
+  <text x="80" y="695" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#14532d">200 - Success</text>
+  
+  <rect x="280" y="680" width="200" height="20" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" rx="2"/>
+  <text x="290" y="695" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#92400e">400 - Validation Error</text>
+  
+  <rect x="490" y="680" width="200" height="20" fill="#fee2e2" stroke="#ef4444" stroke-width="1" rx="2"/>
+  <text x="500" y="695" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#991b1b">500 - Server Error</text>
+  
+  <rect x="700" y="680" width="200" height="20" fill="#e0e7ff" stroke="#6366f1" stroke-width="1" rx="2"/>
+  <text x="710" y="695" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3730a3">422 - Invalid Input</text>
+  
+  <!-- Try It Out Button -->
+  <rect x="950" y="680" width="150" height="40" fill="#059669" rx="4"/>
+  <text x="1005" y="705" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">🚀 Try it out</text>
+  
+  <!-- Security Badge -->
+  <rect x="1050" y="100" width="100" height="30" fill="#16a34a" rx="15"/>
+  <text x="1080" y="120" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">🛡️ Secure</text>
+</svg>
